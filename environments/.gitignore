@@ -1,0 +1,6 @@
+*.tfvars
+.terraform*
+./dev/.terraform*
+./dev/.env
+./environment/dev/*.tfvars
+.DS_Store
