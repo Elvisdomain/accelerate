@@ -12,7 +12,7 @@ variable "security_group_ids" {
   type        = list(string)
 }
 
-variable "ecs_cluster_name" {
+variable "accelerate-cluster" {
   description = "Name of the ECS cluster"
   default     = "accelerate-clusterr"
 }

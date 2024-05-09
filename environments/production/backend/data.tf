@@ -18,12 +18,12 @@ data "aws_vpc" "accelerate_vpc" {
 data "aws_subnets" "public" {
   filter {
     name   = "tag:Name"
-    values = [var.public_subnet_name]
+    values = [var.accelerate-public]
   }
 
   filter {
     name   = "vpc-id"
-    values = [data.aws_vpc.this.id]
+    values = [data.aws_vpc.accelerate_vpc.id]
   }
 }
 
@@ -31,21 +31,24 @@ data "aws_subnets" "public" {
 data "aws_subnets" "private" {
   filter {
     name   = "tag:Name"
-    values = [var.private_subnet_name]
+    values = [var.accelerate-private]
   }
 
   filter {
     name   = "vpc-id"
-    values = [data.aws_vpc.this.id]
+    values = [data.aws_vpc.accelerate_vpc.id]
   }
 }
 
 
+
+
+/*
 data "aws_security_group" "alb" {
   name   = var.security_group_name
   vpc_id = data.aws_vpc.this.id
 }
-
+*/
 # output "vpc" {
 #   value = data.aws_vpc.this
 # }
@@ -54,7 +57,7 @@ data "aws_security_group" "alb" {
 # }
 
 output "private_subnet_id" {
-  value = data.aws_subnets.private.ids
+  value = data.aws_subnets.accelerate-private.ids
 }
 
 # output "security_groups" {

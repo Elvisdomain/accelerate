@@ -11,7 +11,7 @@ provider "aws" {
   region  = var.region
   profile = "irecharge_infra"
 }
-
+/*
 module "vpc" {
   source       = "../../../modules/vpc"
   env          = "dev"
@@ -21,3 +21,4 @@ module "vpc" {
   subnets-pub  = jsondecode(local.credentials.subnets-pub)
   security_group_ids  = local.credentials.sg
 }
+*/

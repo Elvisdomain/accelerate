@@ -9,6 +9,10 @@ variable "azs" {
   type = list(string)
 }
 
+variable "alb_sg" {
+  type = list(string)
+}
+
 variable "env" {
   type = string
 }

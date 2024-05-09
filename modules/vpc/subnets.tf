@@ -10,6 +10,8 @@ resource "aws_subnet" "accelerate-public" {
   }
 }
 
+
+
 # ------- Private Subnets ---------
 resource "aws_subnet" "accelerate-private" {
   vpc_id            = aws_vpc.accelerate_vpc.id

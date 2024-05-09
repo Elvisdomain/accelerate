@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "wallet-TG" {
   }
 }
 
-resource "aws_lb_listener" "wallet-listener" {
+resource "aws_lb_listener" "wallet-listener-http" {
   load_balancer_arn = aws_lb.wallet-lb.arn
   port              = "8080"
   protocol          = "HTTP"
@@ -42,7 +42,7 @@ resource "aws_lb_listener" "wallet-listener" {
 }
 
 # listener for the https load balancer
-resource "aws_lb_listener" "https" {
+resource "aws_lb_listener" "wallet-listener-https" {
   load_balancer_arn = aws_lb.wallet-lb.arn
   port              = "443"
   protocol          = "HTTPS"

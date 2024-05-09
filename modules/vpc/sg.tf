@@ -1,4 +1,4 @@
-resource "aws_security_group" "alb" {
+resource "aws_security_group" "alb-sg" {
   name       = "ALB-SG"
   vpc_id     = aws_vpc.accelerate_vpc.id
   depends_on = [aws_vpc.accelerate_vpc]
