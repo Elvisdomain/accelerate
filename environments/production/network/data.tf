@@ -9,3 +9,13 @@ locals {
   )
 
 }
+
+data "aws_security_group" "alb-sg" {
+  name   = var.security_group_name
+  vpc_id = data.aws_vpc.accelerate_vpc.id
+}
+
+data "aws_vpc" "accelerate_vpc" {
+  id = var.vpc_id
+}
+

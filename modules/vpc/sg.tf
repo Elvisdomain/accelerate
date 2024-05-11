@@ -30,7 +30,7 @@ resource "aws_security_group" "alb-sg" {
     to_port     = 0
   }
   tags = {
-    Name : "${var.env}-irecharge-alb-sg"
+    Name : "irecharge-alb-sg"
   }
 }
 # ------- Security Group ---------
@@ -44,7 +44,7 @@ resource "aws_security_group" "accelerate_SG" {
     from_port       = 0
     protocol        = "tcp"
     to_port         = 65535
-    security_groups = [aws_security_group.alb.id]
+    security_groups = [aws_security_group.alb-sg.id]
   }
 
   ingress {

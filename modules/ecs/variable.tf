@@ -1,20 +1,11 @@
-variable "ami_id" {
-  description = "EC2 instance AMI ID"
-}
-
-variable "instance_type" {
-  description = "EC2 instance type"
-  default     = "t2.micro"
-}
-
 variable "security_group_ids" {
   description = "List of security group IDs"
-  type        = list(string)
+  default     = "security_group ids"
 }
 
 variable "accelerate-cluster" {
   description = "Name of the ECS cluster"
-  default     = "accelerate-clusterr"
+  default     = "accelerate-cluster"
 }
 
 variable "task_definition_family" {
@@ -30,22 +21,11 @@ variable "container_image" {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 variable "env" { type = string }
 variable "ecs_cluster_name" { type = string }
 variable "region" { type = string }
 # variable "ecs_images" { type = list(string) }
-variable "task_definitions" {
+/*variable "task_definitions" {
   description = "Configuration for ECS Task Definitions"
   type = list(object({
     family : string
@@ -58,10 +38,10 @@ variable "task_definitions" {
       value = string
     }))
   }))
-}
+}*/
 
-
-variable "ecs_services" {
+/*
+variable "wallet-service" {
   description = "Configuration for ECS Services"
   type = list(object({
     name : string
@@ -71,5 +51,17 @@ variable "ecs_services" {
     subnets : list(string)
     security_groups : list(string)
     assign_public_ip : bool
+    default     = list(string)
   }))
+} */
+
+
+variable "wallet-task-def" {
+  description = "Name of wallet task def"
+  default     = "wallet-task-def"
+}
+
+variable "wallet-service" {
+  description = "Name of the ECS cluster"
+  default     = "wallet-service"
 }

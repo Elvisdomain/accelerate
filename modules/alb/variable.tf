@@ -5,7 +5,7 @@ variable "env" {
   type = string
 }
 
-variable "subnets-pub" {
+variable "accelerate-public" {
   type = list(string)
 }
 
@@ -20,9 +20,7 @@ variable "vpc_id" {
 variable "wallet-TG_port" {
   type = number
 }
-variable "wallet-TG_port" {
-  type = number
-}
+
 variable "certificate_arn" {
   type = string
 }

@@ -8,7 +8,6 @@ resource "aws_ecs_cluster" "accelerate-cluster" {
   }  
 }
 
-
 # Create ECS Task Definition
 resource "aws_ecs_task_definition" "wallet-task-def" {
   family                   = var.task_definition_family
@@ -26,15 +25,6 @@ resource "aws_ecs_task_definition" "wallet-task-def" {
   ])
 }
 
-
-
-# Create ECS Service
-resource "aws_ecs_service" "wallet-service" {
-  name            = "wallet-service"
-  cluster         = aws_ecs_cluster.accelerate-cluster.id
-  task_definition = aws_ecs_task_definition.wallet-task-def.arn
-  desired_count   = 1
-}
 
  
  # Attach ALB Target Group to ECS Service

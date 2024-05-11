@@ -21,9 +21,7 @@ output "subnets_public_arn" {
 # output "alb_sg_arn" {
 #   value = aws_security_group.alb.arn
 # }
-output "this_sg_id" {
-  value = aws_security_group.alb.id
+output "accelerate_SG" {
+  value = aws_security_group.alb-sg.id
 }
-output "this_sg_arn" {
-  value = aws_security_group.alb.arn
-}
+

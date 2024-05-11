@@ -1,7 +1,7 @@
 # Backend_User_Service
 resource "aws_lb" "wallet-lb" {
   name               = "wallet-lb"
-  subnets            = var.subnets-pub
+  subnets            = var.accelerate-public
   security_groups    = [var.alb_sg]
   internal           = false
   load_balancer_type = "application"
@@ -18,7 +18,7 @@ resource "aws_lb_target_group" "wallet-TG" {
   target_type = "instance"
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
-  depends_on  = [aws_lb.this]
+  depends_on  = [aws_lb.wallet-lb]
   health_check {
     path                = "/"
     protocol            = "HTTP"

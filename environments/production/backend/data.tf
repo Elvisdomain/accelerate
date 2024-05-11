@@ -39,8 +39,10 @@ data "aws_subnets" "private" {
     values = [data.aws_vpc.accelerate_vpc.id]
   }
 }
-
-
+data "aws_security_group" "alb-sg" {
+  name   = var.security_group_name
+  vpc_id = data.aws_vpc.accelerate_vpc.id
+}
 
 
 /*
@@ -56,9 +58,9 @@ data "aws_security_group" "alb" {
 #   value = data.aws_subnets.public
 # }
 
-output "private_subnet_id" {
-  value = data.aws_subnets.accelerate-private.ids
-}
+# output "private_subnet_id" {
+#   value = data.aws_subnets.accelerate-private
+# }
 
 # output "security_groups" {
 #   value = data.aws_security_group.alb
