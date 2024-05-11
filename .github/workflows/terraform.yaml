@@ -15,16 +15,10 @@ jobs:
       AWS_REGION: "us-east-1"
     
     defaults:
-      - name: path_dir
-
-    runs:
-      - name: backend
-        description: "Terraform for App1"
-        working_dir: /environments/production/backend
-
-      - name: network
-        description: "Terraform for App2"
-        working_dir: /environments/production/network
+      run:
+        working-directory:
+          - /environments/production/backend
+          - /environments/production/network
 
     steps:
       - name: Checkout
