@@ -16,9 +16,8 @@ jobs:
     
     defaults:
       run:
-        working-directory:
-          - /environments/production/backend
-          - /environments/production/network
+        working-directory: /environments/production/backend
+        
 
     steps:
       - name: Checkout
