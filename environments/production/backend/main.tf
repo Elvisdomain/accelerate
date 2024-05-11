@@ -1,16 +1,19 @@
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "5.43.0"
-    }
+  required_version = ">=1.8.3"
+
+  backend "s3" {
+    bucket         = "irecharge-infra-state-bucket"
+    key            = "prod/new-network/terraform.tfstate"
+    profile        = "irecharge-infra"
+    encrypt        = "true"
+    dynamodb_table = "prod-terraform-state-lock-table"
   }
 }
-
 provider "aws" {
-  region  = var.region
-  profile = "default"
+  region = "us-east-1"
 }
+
+
 
 module "wallet_alb" {
   project_name    = "wallet-lb"
